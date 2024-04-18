@@ -3,9 +3,7 @@ package de.mpg.imeji.presentation.navigation.history;
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
+import java.util.*;
 
 import de.mpg.imeji.logic.config.Imeji;
 import de.mpg.imeji.logic.model.User;
@@ -23,7 +21,7 @@ public class HistoryPage implements Serializable {
   private String url;
   private String title = "";
   private final ImejiPages imejiPage;
-  private final Map<String, String[]> params;
+  private final Map<String, List<String>> params;
 
   /**
    * Constructor a an {@link HistoryPage}
@@ -33,13 +31,13 @@ public class HistoryPage implements Serializable {
    * @param user
    * @throws Exception
    */
-  public HistoryPage(String url, Map<String, String[]> params, User user) throws Exception {
+  public HistoryPage(String url, Map<String, List<String>> params, User user) throws Exception {
     this.params = new HashMap<>(params);
     this.url = url;
     this.imejiPage = HistoryUtil.getImejiPage(getCompleteUrl());
   }
 
-  private HistoryPage(String url, Map<String, String[]> params, String title, ImejiPages imejiPage) {
+  private HistoryPage(String url, Map<String, List<String>> params, String title, ImejiPages imejiPage) {
     this.params = params;
     this.url = url;
     this.imejiPage = imejiPage;
@@ -90,7 +88,8 @@ public class HistoryPage implements Serializable {
    * @param value
    */
   public HistoryPage setParamValue(String param, String value) {
-    final String[] valueArray = {value};
+    final List<String> valueArray = new ArrayList<>();
+    valueArray.add(value);
     params.put(param, valueArray);
     return this;
   }

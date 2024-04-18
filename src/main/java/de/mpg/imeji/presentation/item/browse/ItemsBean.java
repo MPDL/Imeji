@@ -208,7 +208,6 @@ public class ItemsBean extends SuperPaginatorBean<ThumbnailBean> {
 
   /**
    * Clean the list of select {@link Item} in the session if the selected images context is not
-   * "pretty:browse"
    */
   public void cleanSelectItems() {
     if (sessionBean.getSelectedImagesContext() != null && !sessionBean.getSelectedImagesContext().equals(browseContext)) {
@@ -219,7 +218,8 @@ public class ItemsBean extends SuperPaginatorBean<ThumbnailBean> {
 
   @Override
   public String getNavigationString() {
-    return "pretty:browse";
+    //return "pretty:browse";
+    return "rewrite:";
   }
 
   @Override

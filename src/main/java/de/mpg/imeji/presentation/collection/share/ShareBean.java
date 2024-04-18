@@ -8,10 +8,9 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 
+import de.mpg.imeji.presentation.rewrite.RequestHelper;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
-
-import com.ocpsoft.pretty.PrettyContext;
 
 import de.mpg.imeji.exceptions.ImejiException;
 import de.mpg.imeji.exceptions.ImejiExceptionWithUserMessage;
@@ -124,7 +123,7 @@ public class ShareBean extends SuperBean implements Serializable {
     input = new ShareInput(uri.toString(), ownersEmail, getSessionUser(), getLocale(), instanceName);
     shareList = new ShareList(owner, uri.toString(), getSessionUser(), getLocale());
     isAdmin = SecurityUtil.authorization().administrate(getSessionUser(), shareTo);
-    pageUrl = PrettyContext.getCurrentInstance().getRequestURL().toString() + PrettyContext.getCurrentInstance().getRequestQueryString();
+    pageUrl = RequestHelper.getCurrentInstance().getPrettyRequestURL().toString() + RequestHelper.getCurrentInstance().getRequestQueryString();
     pageUrl = pageUrl.split("[&\\?]group=")[0];
   }
 

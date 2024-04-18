@@ -22,10 +22,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.ws.rs.core.Response.Status;
 
+import de.mpg.imeji.presentation.rewrite.RequestHelper;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
-import com.ocpsoft.pretty.PrettyContext;
 
 import de.mpg.imeji.exceptions.AuthenticationError;
 import de.mpg.imeji.exceptions.BadRequestException;
@@ -219,8 +219,8 @@ public class SecurityFilter implements Filter {
    */
   private void redirectToLoginPage(ServletRequest serv, ServletResponse resp) throws UnsupportedEncodingException, IOException {
     HttpServletRequest request = (HttpServletRequest) serv;
-    String url = NAVIGATION.getApplicationUri() + PrettyContext.getCurrentInstance(request).getRequestURL().toURL();
-    Map<String, String[]> params = PrettyContext.getCurrentInstance(request).getRequestQueryString().getParameterMap();
+    String url = NAVIGATION.getApplicationUri() + RequestHelper.getCurrentInstance(request).getPrettyRequestURL().toString();
+    Map<String, List<String>> params = RequestHelper.getCurrentInstance(request).getRequestQueryParameters();
     ((HttpServletResponse) resp).sendRedirect(serv.getServletContext().getContextPath() + "/login?redirect="
         + URLEncoder.encode(url + HistoryUtil.paramsMapToString(params), "UTF-8"));
 

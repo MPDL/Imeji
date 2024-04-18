@@ -171,10 +171,6 @@ public class EditCollectionBean extends CollectionBean {
         + "?init=1";
   }
 
-  protected String getNavigationString() {
-    return "pretty:editCollection";
-  }
-
   @Override
   protected List<URI> getSelectedCollections() {
     return new ArrayList<>();

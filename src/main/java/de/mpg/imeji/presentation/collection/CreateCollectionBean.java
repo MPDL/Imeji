@@ -160,9 +160,6 @@ public class CreateCollectionBean extends CollectionBean {
     return getNavigation().getCollectionsUrl() + "?q=";
   }
 
-  protected String getNavigationString() {
-    return "pretty:createCollection";
-  }
 
   public ContainerEditorSession getContainerEditorEditorSession() {
     return containerEditorSession;

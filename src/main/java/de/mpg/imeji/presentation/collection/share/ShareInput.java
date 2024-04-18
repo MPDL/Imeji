@@ -95,7 +95,7 @@ public class ShareInput implements Serializable {
    */
   public String removeUnknownEmail(int pos) {
     unknownEmails.remove(pos);
-    return unknownEmails.isEmpty() ? "pretty:" : "";
+    return unknownEmails.isEmpty() ? "rewrite:" : "";
   }
 
   /**

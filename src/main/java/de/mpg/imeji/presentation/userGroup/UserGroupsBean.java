@@ -21,6 +21,7 @@ import de.mpg.imeji.logic.security.usergroup.UserGroupService;
 import de.mpg.imeji.logic.util.UrlHelper;
 import de.mpg.imeji.presentation.beans.SuperBean;
 import de.mpg.imeji.presentation.session.BeanHelper;
+import org.ocpsoft.rewrite.faces.navigate.Navigate;
 
 /**
  * JSF Bean to browse {@link UserGroup}
@@ -116,7 +117,7 @@ public class UserGroupsBean extends SuperBean {
       BeanHelper.error("Error removing group");
       LOGGER.error(e);
     }
-    return "pretty:";
+    return "rewrite:";
   }
 
   /**

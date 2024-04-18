@@ -4,6 +4,7 @@ package de.mpg.imeji.presentation.navigation.history;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URLEncoder;
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -88,15 +89,15 @@ public class HistoryUtil {
    * @param params
    * @return
    */
-  public static String paramsMapToString(Map<String, String[]> params) {
+  public static String paramsMapToString(Map<String, List<String>> params) {
     String s = "";
     for (final String key : params.keySet()) {
       if (!"showUpload".equals(key)) {
         final String delim = "".equals(s) ? "?" : "&";
         try {
-          s += delim + key + "=" + URLEncoder.encode(params.get(key)[0], "UTF-8");
+          s += delim + key + "=" + URLEncoder.encode(params.get(key).get(0), "UTF-8");
         } catch (final UnsupportedEncodingException e) {
-          throw new RuntimeException("Error encoding " + params.get(key)[0], e);
+          throw new RuntimeException("Error encoding " + params.get(key).get(0), e);
         }
       }
     }

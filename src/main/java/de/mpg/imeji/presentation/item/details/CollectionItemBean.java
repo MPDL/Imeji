@@ -29,7 +29,6 @@ public class CollectionItemBean extends ItemBean {
   public CollectionItemBean() {
     super();
     this.collectionId = UrlHelper.getParameterValue("collectionId");
-    this.prettyLink = "pretty:EditImageOfCollection";
   }
 
   @Override
@@ -47,11 +46,6 @@ public class CollectionItemBean extends ItemBean {
     } catch (final IOException e) {
       LOGGER.error("Error redirect to browse page", e);
     }
-  }
-
-  @Override
-  public String getNavigationString() {
-    return "pretty:CollectionItem";
   }
 
   public String getCollectionId() {

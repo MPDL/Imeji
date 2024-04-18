@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.Filter;
@@ -15,8 +16,8 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.ocpsoft.pretty.PrettyContext;
 
+import de.mpg.imeji.presentation.rewrite.RequestHelper;
 import de.mpg.imeji.logic.config.Imeji;
 import de.mpg.imeji.presentation.navigation.Navigation;
 import de.mpg.imeji.presentation.navigation.history.HistoryUtil;
@@ -82,7 +83,7 @@ public class ModeFilter implements Filter {
    * @return
    */
   private boolean isPublicPage(HttpServletRequest request) {
-    final String path = PrettyContext.getCurrentInstance(request).getRequestURL().toURL();
+    final String path = RequestHelper.getCurrentInstance(request).getPrettyRequestURL().toString();
     return Navigation.HELP.hasSamePath(path) || Navigation.HOME.hasSamePath(path) || Navigation.REGISTRATION.hasSamePath(path)
         || Navigation.IMPRINT.hasSamePath(path) || Navigation.PRIVACY_POLICY.hasSamePath(path) || Navigation.TERMS_OF_USE.hasSamePath(path)
         || Navigation.LOGIN.hasSamePath(path) || Navigation.PASSWORD_RESET.hasSamePath(path);
@@ -109,9 +110,9 @@ public class ModeFilter implements Filter {
   }
 
   private void redirectToLogin(ServletRequest serv, ServletResponse resp) throws UnsupportedEncodingException, IOException {
-    final String url = navigation.getApplicationUri() + PrettyContext.getCurrentInstance((HttpServletRequest) serv).getRequestURL().toURL();
-    final Map<String, String[]> params =
-        PrettyContext.getCurrentInstance((HttpServletRequest) serv).getRequestQueryString().getParameterMap();
+    final String url = navigation.getApplicationUri() + RequestHelper.getCurrentInstance((HttpServletRequest) serv).getPrettyRequestURL().toString();
+    final Map<String, List<String>> params =
+        RequestHelper.getCurrentInstance((HttpServletRequest) serv).getRequestQueryParameters();
     ((HttpServletResponse) resp).sendRedirect(navigation.getApplicationUrl() + "login?" + REDIRECT_AFTER_LOGIN_PARAM + "="
         + URLEncoder.encode(url + HistoryUtil.paramsMapToString(params), "UTF-8"));
   }

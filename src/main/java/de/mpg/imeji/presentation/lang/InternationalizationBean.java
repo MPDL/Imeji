@@ -201,7 +201,6 @@ public class InternationalizationBean implements Serializable {
   public void changeLanguage() throws IOException {
     final HistorySession history = (HistorySession) BeanHelper.getSessionBean(HistorySession.class);
     FacesContext.getCurrentInstance().getExternalContext().redirect(history.getCurrentPage().getCompleteUrl());
-    // return "pretty:";
   }
 
   /**

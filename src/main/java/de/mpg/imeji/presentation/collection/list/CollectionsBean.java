@@ -50,7 +50,8 @@ public class CollectionsBean extends SuperContainerBean<CollectionListItem> {
 
   @Override
   public String getNavigationString() {
-    return "pretty:collections";
+    //return "pretty:collections";
+    return "rewrite:";
   }
 
   @Override

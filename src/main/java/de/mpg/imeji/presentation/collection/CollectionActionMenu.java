@@ -65,7 +65,7 @@ public class CollectionActionMenu implements Serializable {
       BeanHelper.error(Imeji.RESOURCE_BUNDLE.getMessage("error_collection_release: " + e.getMessage(), locale));
       LOGGER.error("Error during collection release", e);
     }
-    return "pretty:";
+    return "rewrite:";
   }
 
   public int getCountOfItemsWithoutLicense() {
@@ -112,7 +112,7 @@ public class CollectionActionMenu implements Serializable {
     } else {
       addMPDLDoi();
     }
-    return "pretty:";
+    return "rewrite:";
   }
 
   /**

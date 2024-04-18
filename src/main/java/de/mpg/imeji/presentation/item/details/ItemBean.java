@@ -69,7 +69,6 @@ public class ItemBean extends SuperBean {
   private String id;
   private boolean selected;
   private CollectionImeji collection;
-  protected String prettyLink;
   private ItemDetailsBrowse browse = null;
   private String dateCreated;
   private String newFilename;
@@ -93,7 +92,6 @@ public class ItemBean extends SuperBean {
    * @
    */
   public ItemBean() {
-    prettyLink = "pretty:editImage";
   }
 
   public void preRenderView() throws IOException {
@@ -294,10 +292,6 @@ public class ItemBean extends SuperBean {
 
   public void setId(String id) {
     this.id = id;
-  }
-
-  public String getNavigationString() {
-    return "pretty:item";
   }
 
   public void save() throws IOException {

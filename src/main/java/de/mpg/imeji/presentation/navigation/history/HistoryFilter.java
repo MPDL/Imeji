@@ -3,6 +3,7 @@ package de.mpg.imeji.presentation.navigation.history;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.List;
 import java.util.Map;
 
 import javax.faces.FactoryFinder;
@@ -23,10 +24,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.NotAllowedException;
 import javax.ws.rs.core.Response.Status;
 
+import de.mpg.imeji.presentation.rewrite.RequestHelper;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
-import com.ocpsoft.pretty.PrettyContext;
 
 import de.mpg.imeji.exceptions.AuthenticationError;
 import de.mpg.imeji.exceptions.BadRequestException;
@@ -92,8 +93,8 @@ public class HistoryFilter implements Filter {
    */
   private void redirectToLoginPage(ServletRequest serv, ServletResponse resp) throws UnsupportedEncodingException, IOException {
     final HttpServletRequest request = (HttpServletRequest) serv;
-    final String url = navigation.getApplicationUri() + PrettyContext.getCurrentInstance(request).getRequestURL().toURL();
-    final Map<String, String[]> params = PrettyContext.getCurrentInstance(request).getRequestQueryString().getParameterMap();
+    final String url = navigation.getApplicationUri() + RequestHelper.getCurrentInstance(request).getPrettyRequestURL().toString();
+    final Map<String, List<String>> params = RequestHelper.getCurrentInstance(request).getRequestQueryParameters();
     ((HttpServletResponse) resp).sendRedirect(serv.getServletContext().getContextPath() + "/login?redirect="
         + URLEncoder.encode(url + HistoryUtil.paramsMapToString(params), "UTF-8"));
 
@@ -119,8 +120,8 @@ public class HistoryFilter implements Filter {
     }
 
     if (session != null && hs != null) {
-      final String url = navigation.getApplicationUri() + PrettyContext.getCurrentInstance(request).getRequestURL().toURL();
-      final Map<String, String[]> params = PrettyContext.getCurrentInstance(request).getRequestQueryString().getParameterMap();
+      final String url = navigation.getApplicationUri() + RequestHelper.getCurrentInstance(request).getPrettyRequestURL().toString();
+      final Map<String, List<String>> params = RequestHelper.getCurrentInstance(request).getRequestQueryParameters();
       if (params.containsKey("h")) {
         params.remove("h");
       }
