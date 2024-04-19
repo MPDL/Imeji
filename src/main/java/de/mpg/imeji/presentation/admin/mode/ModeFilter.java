@@ -16,7 +16,6 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 import de.mpg.imeji.presentation.rewrite.RequestHelper;
 import de.mpg.imeji.logic.config.Imeji;
 import de.mpg.imeji.presentation.navigation.Navigation;
@@ -110,9 +109,9 @@ public class ModeFilter implements Filter {
   }
 
   private void redirectToLogin(ServletRequest serv, ServletResponse resp) throws UnsupportedEncodingException, IOException {
-    final String url = navigation.getApplicationUri() + RequestHelper.getCurrentInstance((HttpServletRequest) serv).getPrettyRequestURL().toString();
-    final Map<String, List<String>> params =
-        RequestHelper.getCurrentInstance((HttpServletRequest) serv).getRequestQueryParameters();
+    final String url =
+        navigation.getApplicationUri() + RequestHelper.getCurrentInstance((HttpServletRequest) serv).getPrettyRequestURL().toString();
+    final Map<String, List<String>> params = RequestHelper.getCurrentInstance((HttpServletRequest) serv).getRequestQueryParameters();
     ((HttpServletResponse) resp).sendRedirect(navigation.getApplicationUrl() + "login?" + REDIRECT_AFTER_LOGIN_PARAM + "="
         + URLEncoder.encode(url + HistoryUtil.paramsMapToString(params), "UTF-8"));
   }

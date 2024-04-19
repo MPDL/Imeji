@@ -137,7 +137,8 @@ public class LoginBean extends SuperBean {
     //LOGGER.info("PrettyContext: " + PrettyContext.getCurrentInstance().getRequestURL().toURL());
     LOGGER.info("RequestHelper pretty: " + RequestHelper.getCurrentInstance().getPrettyRequestURL().toString());
     LOGGER.info("RequestHelper original: " + RequestHelper.getCurrentInstance().getOriginalRequestURL().toString());
-    LOGGER.info("HttpRequestUri: " + ((HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest()).getRequestURI());
+    LOGGER.info(
+        "HttpRequestUri: " + ((HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest()).getRequestURI());
     LOGGER.info("HttpRequestAttribute: " + ((HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest())
         .getAttribute("javax.servlet.forward.request_uri"));
     //LOGGER.info("PrettyContext: " + PrettyContext.getCurrentInstance().getRequestQueryString().toQueryString());

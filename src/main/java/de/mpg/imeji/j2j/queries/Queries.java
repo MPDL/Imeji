@@ -34,7 +34,7 @@ public class Queries {
     // set the model for more efficient handling
     final QueryExecution qexec = QueryExecutionFactory.create(q, dataset.getNamedModel(modelName));
     qexec.getContext().set(TDB.symUnionDefaultGraph, true);
-    qexec.setTimeout(-1);
+    //qexec.setTimeout(-1);
 
     LinkedList<String> resultURIs = new LinkedList<String>();
     try {

@@ -123,7 +123,8 @@ public class ShareBean extends SuperBean implements Serializable {
     input = new ShareInput(uri.toString(), ownersEmail, getSessionUser(), getLocale(), instanceName);
     shareList = new ShareList(owner, uri.toString(), getSessionUser(), getLocale());
     isAdmin = SecurityUtil.authorization().administrate(getSessionUser(), shareTo);
-    pageUrl = RequestHelper.getCurrentInstance().getPrettyRequestURL().toString() + RequestHelper.getCurrentInstance().getRequestQueryString();
+    pageUrl =
+        RequestHelper.getCurrentInstance().getPrettyRequestURL().toString() + RequestHelper.getCurrentInstance().getRequestQueryString();
     pageUrl = pageUrl.split("[&\\?]group=")[0];
   }
 

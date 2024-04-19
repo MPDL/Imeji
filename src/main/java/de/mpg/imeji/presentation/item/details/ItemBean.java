@@ -91,8 +91,7 @@ public class ItemBean extends SuperBean {
    *
    * @
    */
-  public ItemBean() {
-  }
+  public ItemBean() {}
 
   public void preRenderView() throws IOException {
     if (FacesContext.getCurrentInstance().getPartialViewContext().isAjaxRequest()) {

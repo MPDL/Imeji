@@ -8,10 +8,11 @@ import java.security.spec.InvalidKeySpecException;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.mpg.imeji.logic.storage.Storage;
 import de.mpg.imeji.logic.util.StorageUtils;
 import org.apache.jena.atlas.lib.AlarmClock;
-import org.apache.jena.tdb.StoreConnection;
+
+import org.apache.jena.tdb1.base.file.Location;
+import org.apache.jena.tdb1.sys.StoreConnection;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 import org.jose4j.lang.JoseException;
@@ -22,8 +23,6 @@ import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.tdb.TDB;
 import org.apache.jena.tdb.TDBFactory;
-import org.apache.jena.tdb.base.file.Location;
-import org.apache.jena.tdb.sys.TDBMaker;
 
 import de.mpg.imeji.exceptions.AlreadyExistsException;
 import de.mpg.imeji.exceptions.ImejiException;
@@ -56,6 +55,8 @@ import de.mpg.imeji.logic.security.authorization.AuthorizationPredefinedRoles;
 import de.mpg.imeji.logic.security.user.UserService;
 import de.mpg.imeji.logic.security.user.UserService.USER_TYPE;
 import de.mpg.imeji.logic.util.StringHelper;
+
+
 
 /**
  * Initialize imeji

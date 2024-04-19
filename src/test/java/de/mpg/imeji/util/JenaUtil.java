@@ -6,12 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.jena.tdb.StoreConnection;
+
 import org.apache.jena.tdb.TDB;
-import org.apache.jena.tdb.base.block.FileMode;
-import org.apache.jena.tdb.base.file.Location;
-import org.apache.jena.tdb.sys.SystemTDB;
-import org.apache.jena.tdb.sys.TDBMaker;
+
+import org.apache.jena.tdb1.base.block.FileMode;
+import org.apache.jena.tdb1.sys.StoreConnection;
+import org.apache.jena.tdb1.sys.SystemTDB;
+import org.apache.jena.tdb1.sys.TDBMaker;
+import org.apache.jena.tdb1.base.file.Location;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

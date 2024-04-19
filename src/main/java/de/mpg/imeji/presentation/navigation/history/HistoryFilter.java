@@ -28,7 +28,6 @@ import de.mpg.imeji.presentation.rewrite.RequestHelper;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
-
 import de.mpg.imeji.exceptions.AuthenticationError;
 import de.mpg.imeji.exceptions.BadRequestException;
 import de.mpg.imeji.exceptions.NotAllowedError;
