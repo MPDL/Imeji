@@ -1972,7 +1972,7 @@ small { font-size: smaller; }
 
 .columnHidden { max-width: 20px !important; min-width: 20px !important; padding: 0 !important; }
 
-.loaderWrapper { position: fixed; top: 0; left: 0; bottom: 0; right: 0; width: 100%; background: #F0F0F0; z-index: 1000; height: 100%; width: 100%; position: fixed; overflow: hidden; opacity: 0.5; display: none; }
+.loaderWrapper { position: fixed; top: 0; left: 0; bottom: 0; right: 0; width: 100%; background: #F0F0F0; z-index: 10000; height: 100%; width: 100%; position: fixed; overflow: hidden; opacity: 0.5; display: none; }
 
 .loader { position: fixed; top: 50%; left: 50%; z-index: 10001; width: 50px; height: 50px; margin: -25px 0 0 -25px; border: 16px solid #5e5e5e; border-radius: 50%; border-top: 16px solid #6CAE2F; -webkit-animation: spin 0.8s linear infinite; animation: spin 0.8s linear infinite; display: none; }
 
