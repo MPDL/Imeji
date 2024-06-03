@@ -90,16 +90,22 @@ public class SecurityFilter implements Filter {
       }
     } catch (NotFoundException e) {
       ((HttpServletResponse) resp).sendError(Status.NOT_FOUND.getStatusCode(), "RESOURCE_NOT_FOUND");
+      return;
     } catch (AuthenticationError e) {
       redirectToLoginPage(serv, resp);
+      return;
     } catch (NotAllowedError e) {
       ((HttpServletResponse) resp).sendError(Status.FORBIDDEN.getStatusCode(), "FORBIDDEN");
+      return;
     } catch (Exception e) {
       LOGGER.error("Error in security Filter", e);
       ((HttpServletResponse) resp).sendError(Status.INTERNAL_SERVER_ERROR.getStatusCode(), "INTERNAL_SERVER_ERROR");
+      return;
     } finally {
-      chain.doFilter(serv, resp);
+
     }
+    chain.doFilter(serv, resp);
+
   }
 
   /**
@@ -220,8 +226,9 @@ public class SecurityFilter implements Filter {
     HttpServletRequest request = (HttpServletRequest) serv;
     String url = NAVIGATION.getApplicationUri() + RequestHelper.getCurrentInstance(request).getPrettyRequestURL().toString();
     Map<String, List<String>> params = RequestHelper.getCurrentInstance(request).getRequestQueryParameters();
-    ((HttpServletResponse) resp).sendRedirect(serv.getServletContext().getContextPath() + "/login?redirect="
-        + URLEncoder.encode(url + HistoryUtil.paramsMapToString(params), "UTF-8"));
+    String urlToRedirect = serv.getServletContext().getContextPath() + "/login?redirect="
+            + URLEncoder.encode(url + HistoryUtil.paramsMapToString(params), "UTF-8");
+    ((HttpServletResponse) resp).sendRedirect(urlToRedirect);
 
   }
 

@@ -135,15 +135,15 @@ public class LoginBean extends SuperBean {
 
   private void initRequestUrl() {
     //LOGGER.info("PrettyContext: " + PrettyContext.getCurrentInstance().getRequestURL().toURL());
-    LOGGER.info("RequestHelper pretty: " + RequestHelper.getCurrentInstance().getPrettyRequestURL().toString());
-    LOGGER.info("RequestHelper original: " + RequestHelper.getCurrentInstance().getOriginalRequestURL().toString());
-    LOGGER.info(
-        "HttpRequestUri: " + ((HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest()).getRequestURI());
-    LOGGER.info("HttpRequestAttribute: " + ((HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest())
-        .getAttribute("javax.servlet.forward.request_uri"));
+    //LOGGER.info("RequestHelper pretty: " + RequestHelper.getCurrentInstance().getPrettyRequestURL().toString());
+    //LOGGER.info("RequestHelper original: " + RequestHelper.getCurrentInstance().getOriginalRequestURL().toString());
+    //LOGGER.info(
+    //    "HttpRequestUri: " + ((HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest()).getRequestURI());
+    //LOGGER.info("HttpRequestAttribute: " + ((HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest())
+    //    .getAttribute("javax.servlet.forward.request_uri"));
     //LOGGER.info("PrettyContext: " + PrettyContext.getCurrentInstance().getRequestQueryString().toQueryString());
-    LOGGER.info(((HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest()).getQueryString());
-    LOGGER.info("RequestHelper: " + RequestHelper.getCurrentInstance().getRequestQueryString());
+    //LOGGER.info(((HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest()).getQueryString());
+    //LOGGER.info("RequestHelper: " + RequestHelper.getCurrentInstance().getRequestQueryString());
 
     this.requestUrl = getNavigation().getApplicationUri() + RequestHelper.getCurrentInstance().getPrettyRequestURL().toString()
         + RequestHelper.getCurrentInstance().getRequestQueryString();

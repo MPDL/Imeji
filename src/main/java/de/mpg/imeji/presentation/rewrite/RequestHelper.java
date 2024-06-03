@@ -24,7 +24,7 @@ public class RequestHelper {
   private final String contextPath;
   private final URI prettyRequestURL;
   private final URI originalRequestURL;
-  private final String requestQueryString;
+  private String requestQueryString;
 
 
 
@@ -62,6 +62,10 @@ public class RequestHelper {
     }
 
     this.requestQueryString = request.getQueryString() != null ? request.getQueryString() : "";
+    if(!requestQueryString.isEmpty() && !requestQueryString.startsWith("?"))
+    {
+      this.requestQueryString= "?" + requestQueryString;
+    }
     addParameters(requestQueryString);
   }
 
