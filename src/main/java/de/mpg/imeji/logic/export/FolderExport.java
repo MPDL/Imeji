@@ -2,6 +2,7 @@ package de.mpg.imeji.logic.export;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.net.SocketTimeoutException;
 import java.net.URI;
 import java.util.Date;
 import java.util.List;
@@ -88,6 +89,8 @@ public class FolderExport extends ExportAbstract {
     for (ContentVO content : contents) {
       try {
         ZipUtil.addFile(zip, parentPath + "/" + itemMap.get(content.getItemId()).getFilename(), content.getOriginal(), 0);
+      } catch (SocketTimeoutException e) {
+        LOGGER.error("Socket timeout while exporting zip");
       } catch (Exception e) {
         LOGGER.error("Error zip export", e);
       }
