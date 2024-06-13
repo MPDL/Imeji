@@ -165,7 +165,7 @@ public class SearchQueryParser {
    */
   private static SearchElement parsePair(String s, boolean not, boolean addFulltext) throws UnprocessableError {
     if (new StringParser(METADATA_PATTERN).find(s)) {
-      LOGGER.info("Detected as Metadata " + s);
+      //LOGGER.info("Detected as Metadata " + s);
       return parseMetadata(s, not);
     } else if (new StringParser(COLLECTION_METADATA_PATTERN).find(s)) {
       return parseCollectionMetadata(s, not);
