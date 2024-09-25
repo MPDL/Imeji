@@ -70,30 +70,18 @@
 
 									<!-- AdminDataList - allowedToCreateCollection -->
 									<h:panelGroup layout="block" styleClass="imj_admindataSet">
-										<div class="imj_admindataValueCheckBox">
-											<div class="imj_admindataValueEntry">
 												<h:selectBooleanCheckbox
+														id="allowCreateCollectionCheck"
 													value="#{UserCreationBean.allowedToCreateCollection}"
 													styleClass="imj_admindataCheckbox" />
-											</div>
-										</div>
-										<div class="imj_admindataLabel">
-											<h:outputText value="#{lbl.allowedToCreateCollection}" />
-											<span class="imj_invisible">: </span>
-										</div>
+
+									<label for="allowCreateCollectionCheck">#{lbl.allowedToCreateCollection}</label>
 									</h:panelGroup>
 
 									<!-- AdminDataList - SendEmail CheckBox-->
 									<h:panelGroup layout="block" styleClass="imj_admindataSet">
-										<div class="imj_admindataValueCheckBox">
-											<div class="imj_admindataValueEntry">
-												<h:selectBooleanCheckbox value="#{UserCreationBean.sendEmail}" styleClass="imj_admindataCheckbox" />
-											</div>
-										</div>
-										<div class="imj_admindataLabel">
-											<h:outputText value="#{lbl.user_send_mail}" />
-											<span class="imj_invisible">: </span>
-										</div>
+												<h:selectBooleanCheckbox id="sendEmailCheck" value="#{UserCreationBean.sendEmail}" styleClass="imj_admindataCheckbox" />
+												<label for="sendEmailCheck">#{lbl.user_send_mail}</label>
 									</h:panelGroup>
 									<div class="imj_metadataSet">
 										<div class="imj_metadataLabel">
