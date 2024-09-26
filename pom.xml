@@ -4,7 +4,7 @@
 	<groupId>org.imeji</groupId>
 	<name>imeji</name>
 	<packaging>war</packaging>
-	<version>4.10.9-SNAPSHOT</version>
+	<version>4.10.10-SNAPSHOT</version>
 	<url>http://imeji.org</url>
 	<description>The imeji open source software offers a dedicated metadata management by supporting a non- restrictive metadata schema definition, as simple as liked or as complex as needed.</description>
 	<licenses>
@@ -154,12 +154,12 @@
 		<repository>
 			<id>releases</id>
 			<name>Nexus Managed Releases</name>
-			<url>https://rd.mpdl.mpg.de/nexus3/repositories/releases/</url>
+			<url>https://rd.mpdl.mpg.de/nexus3/content/repositories/releases/</url>
 		</repository>
 		<snapshotRepository>
 			<id>snapshots</id>
 			<name>Nexus Managed Snapshots</name>
-			<url>https://rd.mpdl.mpg.de/nexus3/repositories/snapshots/</url>
+			<url>https://rd.mpdl.mpg.de/nexus3/content/repositories/snapshots/</url>
 		</snapshotRepository>
 
 	</distributionManagement>
@@ -193,7 +193,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-release-plugin</artifactId>
-				<version>2.5.2</version>
+				<version>3.1.1</version>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
